@@ -1,6 +1,6 @@
 
-batch_size = 8
-epochs = 1
+batch_size = 64
+epochs = 100
 lr = 0.01
 momentum = 0.9
 no_cuda = False

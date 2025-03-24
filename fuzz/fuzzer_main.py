@@ -48,6 +48,8 @@ parser.add_argument('--output_dir', type=str, default=None,
 parser.add_argument('--input_model', type=str, default=None,
                     help='model for fuzzing')
 
+parser.add_argument('--num_classes', type=int, default=31,
+                    help='number of classes')
 args = parser.parse_args()
 
 torch.manual_seed(args.seed)
@@ -68,7 +70,7 @@ def load_model():
         # choice: alexnet, resnet{34, 50, 101}, vgg{16, 19}
         from net import ResNet
 
-        model = ResNet.DSAN(num_classes=65)
+        model = ResNet.DSAN(num_classes=args.num_classes)
         model.load_state_dict(torch.load(args.input_model))
         model.to(DEVICE).eval()
 

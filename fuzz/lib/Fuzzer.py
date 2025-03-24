@@ -45,9 +45,11 @@ class Fuzzer(object):
         # average structural similarity
         ASS = 0
 
-        for idx, (image, labels, img_path) in enumerate(self.data_loader):
-            img_name = os.path.split(img_path[0])[-1]
-
+        for idx, (image, labels) in enumerate(self.data_loader):
+            #img_name = os.path.split(img_path[0])[-1]
+            dataset = self.data_loader.dataset
+            image_filenames = dataset.imgs
+            img_name = os.path.basename(image_filenames[idx][0])  
             image.requires_grad = True
             labels = labels.to(self.device)
             init_image = deepcopy(image)

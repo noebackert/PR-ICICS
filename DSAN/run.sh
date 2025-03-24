@@ -1,2 +1,3 @@
-# python3 DSAN/train_target_model.py --model_name densenet --epochs 5 --data_path ./datasets/office31/webcam/ --dataset_target webcam --num_classes 31 --batch_size 8
-python3 DSAN/DSAN.py --target_model target_webcam_densenet.pt --target_name office31/webcam --source_name office31/amazon
+# # python3 DSAN/train_target_model.py --model_name densenet --epochs 5 --data_path ./datasets/office31/webcam/ --dataset_target webcam --num_classes 31 --batch_size 8
+# python3 DSAN/DSAN.py --target_model target_webcam_densenet.pt --target_name webcam --source_name amazon
+python3 fuzz/fuzzer_main.py --input_data ./datasets/office31/amazon/test/ --output_dir ./data/fuzzed_data/ --input_model ./model_resnet50_amazon_webcam.pth

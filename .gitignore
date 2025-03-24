@@ -4,3 +4,7 @@ datasets/
 *pyc
 *pt
 *pth
+venv/
+.job
+.out
+backert*

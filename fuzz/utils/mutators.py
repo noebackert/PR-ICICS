@@ -35,7 +35,7 @@ def image_noise(img, params, grads, pixel=800):
                           histeq(grads[1]).reshape(grads[1].shape),
                           histeq(grads[2]).reshape(grads[2].shape)])
 
-        gauss_noise = torch.tensor([gaussian_gradient_magnitude(grads, sigma=2)])
+        gauss_noise = torch.tensor(np.array([gaussian_gradient_magnitude(grads, sigma=2)]))
 
         img = torch.add(img, torch.tensor(grads))
 

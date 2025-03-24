@@ -28,6 +28,9 @@ parser.add_argument('--source_name', type=str, default=None, metavar='S',
 parser.add_argument('--target_name', type=str, default=None, metavar='T',
                     help='target data')
 
+parser.add_argument('--robust', type=str, default=None, metavar='T',
+                    help='robustness type')
+
 args = parser.parse_args()
 
 kwargs = {'num_workers': 1, 'pin_memory': True} if cuda else {}
@@ -144,7 +147,8 @@ if __name__ == '__main__':
         if t_correct > correct:
             correct = t_correct
             # model saved
-            torch.save(model.state_dict(), 'model_resnet50_{}_{}.pth'.format(args.source_name, args.target_name))
+            robust_str = args.robust if args.robust is not None else ""
+            torch.save(model.state_dict(), f'model_resnet50_{args.source_name}_{args.target_name}_{robust_str}.pth')
 
         end_time = time.time()
         print('source: {} to target: {} max correct: {} max accuracy{: .2f}%\n'.format(

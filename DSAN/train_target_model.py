@@ -161,13 +161,13 @@ def model_test(model_saved_path, data_loaders):
     print('starting offline testing')
     print()
 
-    model = torch.load(model_saved_path)
+    model = torch.load(model_saved_path, weights_only=False)
 
     correct = 0
     total = 0
 
     with torch.no_grad():
-        for (images, labels, _) in data_loaders['test']:
+        for (images, labels) in data_loaders['test']:
 
             images, labels = images.to(DEVICE), labels.to(DEVICE)
             outputs = model(images).argmax(axis=-1)

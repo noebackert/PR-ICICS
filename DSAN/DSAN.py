@@ -147,8 +147,8 @@ if __name__ == '__main__':
         if t_correct > correct:
             correct = t_correct
             # model saved
-            robust_str = args.robust if args.robust is not None else ""
-            torch.save(model.state_dict(), f'model_resnet50_{args.source_name}_{args.target_name}_{robust_str}.pth')
+            robust_str = f"_{args.robust}" if args.robust is not None else ""
+            torch.save(model.state_dict(), f'model_resnet50_{args.source_name}_{args.target_name}{robust_str}.pth')
 
         end_time = time.time()
         print('source: {} to target: {} max correct: {} max accuracy{: .2f}%\n'.format(

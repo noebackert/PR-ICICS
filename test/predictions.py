@@ -17,6 +17,7 @@ parser.add_argument('--target_model', type=str, default=None, help='target model
 parser.add_argument('--target_dataset', type=str, default=None, help='target dataset name')
 parser.add_argument('--target_path', type=str, default=None, help='robust model training method')
 parser.add_argument('--fuzz', default=0, type=bool, help='Test of fuzzed images')
+parser.add_argument('--robust', default=None, type=str, help='Name of robust model')
 args = parser.parse_args()
 
 
@@ -35,7 +36,10 @@ if args.target_path:
     
 
 if args.fuzz:
-    dataset_test_path = f"fuzz/data/target_{args.target_dataset}_{args.target_model}/"
+    if args.robust is not None:
+        dataset_test_path = f"fuzz/data/target_{args.target_dataset}_{args.target_model}_adv_{args.robust}/"
+    else:
+        dataset_test_path = f"fuzz/data/target_{args.target_dataset}_{args.target_model}/"
 
 def load_model(model_path):
     model = torch.load(model_path, weights_only=False, map_location=DEVICE)

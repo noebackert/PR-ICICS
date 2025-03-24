@@ -39,12 +39,12 @@ from art.estimators.classification import PyTorchClassifier
 if "Product" in args.dataset_target or "RealWorld" in args.dataset_target:
     num_classes = 65
     data_path = f"./datasets/office_home/{args.dataset_target}"
-    model_path = f"DSAN/models/target_{str(args.dataset_target).lower()}_{args.model_target}.pt"
+    model_path = f"DSAN/models/target_{args.dataset_target}_{args.model_target}.pt"
     root_path_save = f"defense/models/office_home"
 else:
     num_classes = 31
     data_path = f"./datasets/office31/{args.dataset_target}"
-    model_path = f"DSAN/models/target_{str(args.dataset_target).lower()}_{args.model_target}.pt"
+    model_path = f"DSAN/models/target_{args.dataset_target}_{args.model_target}.pt"
     root_path_save = f"defense/models/office31"
 
 if args.model_path is not None:

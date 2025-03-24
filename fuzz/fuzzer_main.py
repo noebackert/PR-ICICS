@@ -48,7 +48,7 @@ parser.add_argument('--output_dir', type=str, default=None,
 parser.add_argument('--input_model', type=str, default=None,
                     help='model for fuzzing')
 
-parser.add_argument('--num_classes', type=int, default=31,
+parser.add_argument('--num_classes', type=int, default=65,
                     help='number of classes')
 args = parser.parse_args()
 

@@ -125,7 +125,7 @@ if str(args.adv_trainer).lower() == 'madry':
     # save the model
     if not os.path.exists(root_path_save):
         os.makedirs(root_path_save)
-    torch.save(classifier.model, f"{root_path_save}/target_{str(args.dataset_target).lower()}_{args.model_target}_adv_{args.adv_trainer}.pt")
+    torch.save(classifier.model, f"{root_path_save}/target_{args.dataset_target}_{args.model_target}_adv_{args.adv_trainer}.pt")
 
 elif str(args.adv_trainer).lower() == 'fbf':
     optimizer = optim.Adam(model.parameters(), lr=0.001)
@@ -147,5 +147,5 @@ elif str(args.adv_trainer).lower() == 'fbf':
     print("Test accuracy after FBF adversarial training: {:.2f}%".format(accuracy_fbf * 100))
     if not os.path.exists(root_path_save):
         os.makedirs(root_path_save)
-    torch.save(classifier.model, f"{root_path_save}/target_{str(args.dataset_target).lower()}_{args.model_target}_adv_{args.adv_trainer}.pt")
+    torch.save(classifier.model, f"{root_path_save}/target_{args.dataset_target}_{args.model_target}_adv_{args.adv_trainer}.pt")
 

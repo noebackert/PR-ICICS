@@ -275,12 +275,12 @@ if __name__ == "__main__":
         num_classes = 65
         data_path = f"./datasets/office_home/{args.dataset_target}"
         model_path = f"DSAN/models/target_{args.model_target}_{args.dataset_target}_{args.model_target}.pt"
-        save_path = f"defense/models/office_home/{args.model_target}_{str(args.dataset_target).lower()}_TranFuzz_defended.pt"
+        save_path = f"defense/models/office_home/{args.model_target}_{args.dataset_target}_TranFuzz_defended.pt"
     else:
         num_classes = 31
         data_path = f"./datasets/office31/{args.dataset_target}"
         model_path = f"DSAN/models/target_{args.model_target}_{args.dataset_target}_{args.model_target}.pt"
-        save_path = f"defense/models/office31/{args.model_target}_{str(args.dataset_target).lower()}_TranFuzz_defended.pt"
+        save_path = f"defense/models/office31/{args.model_target}_{args.dataset_target}_TranFuzz_defended.pt"
 
     fuzzed_images_dir = f"fuzz/data/target_{args.dataset_target}_{args.model_target}"
 

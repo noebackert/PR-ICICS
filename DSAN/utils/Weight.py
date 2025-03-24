@@ -1,14 +1,14 @@
 import numpy as np
+from utils.config import *
 
-
-def convert_to_onehot(sca_label, class_num=65):
+def convert_to_onehot(sca_label, class_num=class_num):
     return np.eye(class_num)[sca_label]
 
 
 class Weight:
 
     @staticmethod
-    def cal_weight(s_label, t_label, type='visual', batch_size=32, class_num=65):
+    def cal_weight(s_label, t_label, type='visual', batch_size=32, class_num=class_num):
         batch_size = s_label.size()[0]
 
         s_sca_label = s_label.cpu().data.numpy()

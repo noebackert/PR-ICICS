@@ -68,8 +68,8 @@ def train(epoch, model, t_model):
 
     for i in range(1, num_iter):
 
-        data_source, label_source = iter_source.next()
-        data_target, _ = iter_target.next()
+        data_source, label_source = next(iter_source)
+        data_target, _ = next(iter_target)
         if i % len_target_loader == 0:
             iter_target = iter(target_train_loader)
         if cuda:
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     model = models.DSAN(num_classes=class_num)
 
     # access target model
-    target_model = torch.load(args.target_model)
+    target_model = torch.load(args.target_model, weights_only=False)
 
     correct = 0
     # print(model)

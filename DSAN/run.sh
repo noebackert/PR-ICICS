@@ -1,2 +1,2 @@
-
-python3 train_target_model.py --model_name alexnet --epochs 200 --data_path /datasets/office_home/Product/ --cate_name alexnet_product
+# python3 DSAN/train_target_model.py --model_name densenet --epochs 5 --data_path ./datasets/office31/webcam/ --dataset_target webcam --num_classes 31 --batch_size 8
+python3 DSAN/DSAN.py --target_model target_webcam_densenet.pt --target_name office31/webcam --source_name office31/amazon

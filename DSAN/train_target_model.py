@@ -29,8 +29,8 @@ parser.add_argument('--epochs', type=int, default=100, metavar='N',
 parser.add_argument('--data_path', type=str, default='../../datasets/Office31/webcam/',
                     help='the path to load the data')
 
-parser.add_argument('--cate_name', type=str, default='train',
-                    help='the name of category')
+parser.add_argument('--dataset_target', type=str, default='webcam',
+                    help='the name of the target dataset')
 
 parser.add_argument('--save_path', type=str, default='./',
                     help='the path to save the target model')
@@ -38,7 +38,7 @@ parser.add_argument('--save_path', type=str, default='./',
 parser.add_argument('--seed', type=int, default=233, metavar='S',
                     help='random seed (default: 1)')
                     
-parser.add_argument('--gpu', default=3, type=int)
+parser.add_argument('--gpu', default=0, type=int)
 
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='disables CUDA training')
@@ -46,7 +46,11 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
 args = parser.parse_args()
 
 args.cuda = not args.no_cuda and torch.cuda.is_available()
-DEVICE = torch.device('cuda:' + str(args.gpu) if torch.cuda.is_available() else 'cpu')
+if torch.cuda.device_count() > 1:
+    DEVICE = torch.device('cuda:' + str(args.gpu) if torch.cuda.is_available() else 'cpu')
+else:
+    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 torch.cuda.manual_seed(args.seed)
 kwargs = {'num_workers': 1, 'pin_memory': True} if args.cuda else {}
 
@@ -103,7 +107,7 @@ def model_training(model, data_loaders, dataset_sizes):
 
             print('{0} Phase: {1} {2}'.format('-' * 10, phase, '-' * 10))
 
-            for batch_idx, (inputs, labels, _) in tqdm.tqdm(enumerate(data_loaders[phase]),
+            for batch_idx, (inputs, labels) in tqdm.tqdm(enumerate(data_loaders[phase]),
                                                          total=int(dataset_sizes[phase]/args.batch_size),
                                                          desc='Train epoch = {}'.format(epoch),
                                                          ncols=80, leave=False):
@@ -144,7 +148,7 @@ def model_training(model, data_loaders, dataset_sizes):
                 model.load_state_dict(best_model_wts)  # success or not
                 if not os.path.exists(args.save_path):
                     os.makedirs(args.save_path)
-                model_saved_path = os.path.join(args.save_path, 'target_{}_'.format(args.cate_name) + args.model_name + '.pt')
+                model_saved_path = os.path.join(args.save_path, 'target_{}_'.format(args.dataset_target) + args.model_name + '.pt')
                 torch.save(model, model_saved_path)
 
         print()

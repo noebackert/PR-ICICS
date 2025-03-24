@@ -1,0 +1,6 @@
+*.jpg
+*.png
+datasets/
+*pyc
+*pt
+*pth

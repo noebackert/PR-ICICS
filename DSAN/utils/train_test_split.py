@@ -4,7 +4,7 @@ import random
 import shutil
 
 if __name__ == '__main__':
-    path = '../../datasets/office31'
+    path = '../../datasets/office_home'
     for root, dirs, files in os.walk(path):
 
         if (len(root.split('/'))) == 6:

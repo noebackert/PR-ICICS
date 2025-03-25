@@ -127,7 +127,7 @@ class Fuzzer(object):
 
                 image = image + torch.rot90(adv_noise, 2, [1, 3]) * self.purb
 
-                image = torch.tensor(image, dtype=torch.float, requires_grad=True)
+                image = image.clone().detach().requires_grad_(True).float()
 
                 # re-predict to adv_image
                 output = self.predict(image)

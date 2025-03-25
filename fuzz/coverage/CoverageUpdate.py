@@ -36,7 +36,7 @@ class CoverageUpdate():
             if model_name in ['AlexNet', 'VGG', 'ResNet', 'DSAN'] and isinstance(layer_names.get(key), nn.Linear):
                 input = torch.flatten(input, 1)
 
-            if (model_name is 'DSAN' and 'ResNet' in self.model.feature_layers.__class__.__name__) or (model_name is 'ResNet'):
+            if (model_name == 'DSAN' and 'ResNet' in self.model.feature_layers.__class__.__name__) or (model_name == 'ResNet'):
                 # resnet model layers
                 # print(key, value)
 

@@ -11,9 +11,9 @@ l2_decay = 5e-4
 class_num = 65
 param = 0.3
 bottle_neck = True
-root_path = "/home/leohoo/work/code/tlfuzz/datasets/Office31/"
-source_name = "webcam"
-target_name = "dslr"
+root_path = "./datasets/office_home/"
+source_name = "Product"
+target_name = "RealWorld"
 
 class bcolors:
     HEADER = '\033[95m'

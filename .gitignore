@@ -6,5 +6,5 @@ datasets/
 *pth
 venv/
 .job
-.out
+*.out
 backert*

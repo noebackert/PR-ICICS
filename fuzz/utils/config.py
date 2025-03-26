@@ -11,7 +11,7 @@ l2_decay = 5e-4
 class_num = 31
 param = 0.3
 bottle_neck = True
-root_path = "/home/leohoo/work/code/tlfuzz/datasets/Office31/"
+root_path = "./datasets/office31/"
 source_name = "webcam"
 target_name = "dslr"
 

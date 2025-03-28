@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=run_densenet_global_office_home.job
+#SBATCH --job-name=run_densenet_global_amazon.job
 #SBATCH --mail-user=noe.backert@etu.emse.fr
 #SBATCH --mail-type=ALL
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=32768
 #SBATCH --time=01-12:00:00
-#SBATCH --partition=gpu.q
+#SBATCH --partition=gpu-a100.q
 ulimit -l unlimited
 unset SLURM_GTIDS
 

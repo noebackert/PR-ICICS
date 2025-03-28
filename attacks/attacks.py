@@ -95,7 +95,7 @@ data_loaders, dataset_sizes = load_data(input_size)
 model = torch.load(model_path, weights_only=False, map_location=device)
 model.to(device)
 model.eval()  # Set in evaluation mode
-print(f"Model output classes: {model.classifier.out_features}")
+#print(f"Model output classes: {model.classifier.out_features}")
 print(f"Dataset target : {args.dataset_target}")
 print(f"Model target : {args.model_target}")
 print(f"Model path : {model_path}")

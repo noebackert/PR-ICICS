@@ -1,10 +1,19 @@
 # TranFuzz - Setup and Usage Guide
+TranFuzz is a black-box adversarial attack and defense framework that leverages domain adaptation and fuzzing techniques to generate robust adversarial examples for model evaluation and robust training.
+
 
 ## Reference 
 Hao Li, Shanqing Guo, Peng Tang, Chengyu Hu, Zhenxiang Chen: TranFuzz: An Ensemble Black-Box Attack Framework Based on Domain Adaptation and Fuzzing. ICICS (1) 2021: 260-275
 
 Adaptation of the following code for better usability :
 https://github.com/lihaoSDU/ICICS2021/
+
+# Prerequisites:
+
+Python >= 3.8  
+GPU recommended (CUDA supported)  
+Tested on Ubuntu 20.04 
+
 
 ## Installation
 
@@ -108,6 +117,6 @@ Remove the hardcoded 65 value. Instead, use the appropriate value from utils.con
 
 # Notes
 
-slurm-201830.out = office31 webcam densenet target
-slurm-201834.out = office_home Product densenet target
-slurm-201836.out = office31 webcam densenet target again
+slurm-201830.out = office31 webcam densenet target  
+slurm-201834.out = office_home Product densenet target  
+slurm-201836.out = office31 webcam densenet target again  

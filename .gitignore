@@ -5,6 +5,6 @@ datasets/
 *pt
 *pth
 venv/
-.job
-.out
+*.job
+*.out
 backert*
